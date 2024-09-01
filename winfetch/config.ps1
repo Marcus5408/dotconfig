@@ -48,7 +48,7 @@
 function info_gpus {
     return @{
         title = "GPUs"
-        content = "Intel(R) UHD Graphics, NVIDIA GeForce MX230"
+        content = "Intel(R) UHD Graphics, NVIDIA GeForce RTX 4060 Laptop"
     }
 }
 
