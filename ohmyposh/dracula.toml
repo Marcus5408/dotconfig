@@ -2,7 +2,6 @@
 
 version = 2
 final_space = true
-console_title_template = '{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }}: {{.Folder}}{{else}}{{ .Shell }} in {{ .Folder }}{{end}}'
 
 [[blocks]]
   type = 'prompt'
@@ -39,6 +38,7 @@ console_title_template = '{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }}: {
         "~/Sounds" = ""
         "~/.config" = ""
         "~/Repos" = ""
+        "~/Developer" = ""
         "~/iCloudDrive" = "󰀸"
 
   [[blocks.segments]]
@@ -77,6 +77,13 @@ console_title_template = '{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }}: {
 
     [blocks.segments.properties]
       fetch_package_manager = true
+  
+  [[blocks.segments]]
+    type = "text"
+    style = "plain"
+    foreground = "#f8f8f2"
+    background = "#ff5555"
+    template = "\n"
 
 [[blocks]]
   type = 'rprompt'
