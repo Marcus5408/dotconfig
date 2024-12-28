@@ -1,53 +1,62 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
+version = 3
 final_space = true
+
+[secondary_prompt]
+  template = '❯❯ '
+  foreground = 'magenta'
+  background = 'transparent'
+
+[transient_prompt]
+  template = '❯ '
+  foreground = ''
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}green{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
 
   [[blocks.segments]]
-    type = 'session'
     style = 'diamond'
-    foreground = '#f8f8f2'
-    background = '#6272a4'
     leading_diamond = ''
     template = '{{ if .SSHSession }}󰣀 {{ .UserName }}@{{ .HostName }} {{else}}󰌢 {{end}}'
+    foreground = '#f8f8f2'
+    background = '#6272a4'
+    type = 'session'
 
   [[blocks.segments]]
-    type = 'path'
     style = 'powerline'
-    powerline_symbol = ''
-    foreground = '#f8f8f2'
-    background = '#bd93f9'
     template = ' {{ .Path }} '
+    foreground = '#f8f8f2'
+    powerline_symbol = ''
+    background = '#bd93f9'
+    type = 'path'
 
     [blocks.segments.properties]
       style = 'folder'
 
       [blocks.segments.properties.mapped_locations]
-        "/mnt/c" = ""
-        "C:/" = ""
-        "~/Desktop" = "󰍹"
-        "~/Downloads" = "󰇚"
-        "~/Documents" = "󰧮"
-        "~/Pictures" = "󰥶"
-        "~/Videos" = ""
-        "~/Music" = "󰎇"
-        "~/Sounds" = ""
-        "~/.config" = ""
-        "~/Repos" = ""
-        "~/Developer" = ""
-        "~/iCloudDrive" = "󰀸"
+        '/mnt/c' = ''
+        'C:/' = ''
+        '~/.config' = ''
+        '~/Desktop' = '󰍹'
+        '~/Developer' = ''
+        '~/Documents' = '󰧮'
+        '~/Downloads' = '󰇚'
+        '~/Music' = '󰎇'
+        '~/Pictures' = '󰥶'
+        '~/Repos' = ''
+        '~/Sounds' = ''
+        '~/Videos' = ''
+        '~/iCloudDrive' = '󰀸'
 
   [[blocks.segments]]
-    type = 'git'
     style = 'powerline'
-    powerline_symbol = ''
-    foreground = '#f8f8f2'
-    background = '#ffb86c'
     template = '  {{ .HEAD }}{{ if gt .StashCount 0 }} ( {{ .StashCount }}){{ end }} '
+    foreground = '#f8f8f2'
+    powerline_symbol = ''
+    background = '#ffb86c'
+    type = 'git'
 
     [blocks.segments.properties]
       branch_icon = ''
@@ -56,84 +65,71 @@ final_space = true
       fetch_upstream_icon = true
 
   [[blocks.segments]]
-    type = 'python'
     style = 'powerline'
-    powerline_symbol = ''
-    foreground = '#F8F8F2'
-    background = '#8BE9FD'
     template = '  {{if .Venv}}{{.Venv}} ({{.Full}}) {{end}}'
+    foreground = '#F8F8F2'
+    powerline_symbol = ''
+    background = '#8BE9FD'
+    type = 'python'
 
     [blocks.segments.properties]
       fetch_virtualenv = true
       home_enabled = true
 
   [[blocks.segments]]
-    type = 'node'
     style = 'powerline'
-    powerline_symbol = ''
-    foreground = '#F8F8F2'
-    background = '#8BE9FD'
     template = '  {{ .Full }} '
+    foreground = '#F8F8F2'
+    powerline_symbol = ''
+    background = '#8BE9FD'
+    type = 'node'
 
     [blocks.segments.properties]
       fetch_package_manager = true
-  
+
   [[blocks.segments]]
-    type = "text"
-    style = "plain"
-    foreground = "#f8f8f2"
-    background = "#ff5555"
-    template = "\n"
+    style = 'plain'
+    template = ""
+    foreground = '#f8f8f2'
+    background = '#ff5555'
+    type = 'text'
 
 [[blocks]]
   type = 'rprompt'
-  overflow = 'hidden'
   alignment = 'right'
+  overflow = 'hidden'
 
   [[blocks.segments]]
-    type = 'aws'
     style = 'diamond'
-    invert_powerline = true
-    foreground = '#282a36'
-    background = '#f1fa8c'
     leading_diamond = ''
     trailing_diamond = ''
     template = '  {{.Profile}}{{if .Region}}@{{.Region}}{{end}}'
-
-  [[blocks.segments]]
-    type = 'executiontime'
-    style = 'diamond'
-    invert_powerline = true
     foreground = '#282a36'
     background = '#f1fa8c'
+    type = 'aws'
+    invert_powerline = true
+
+  [[blocks.segments]]
+    style = 'diamond'
     leading_diamond = ''
     template = '  {{ .FormattedMs }} '
+    foreground = '#282a36'
+    background = '#f1fa8c'
+    type = 'executiontime'
+    invert_powerline = true
 
     [blocks.segments.properties]
       threshold = 5000
-  
+
   [[blocks.segments]]
-    type = 'time'
     style = 'diamond'
-    invert_powerline = true
-    foreground = '#f8f8f2'
-    background = '#ff79c6'
     leading_diamond = ''
     trailing_diamond = ''
     template = ' ♥ {{ .CurrentDate | date .Format }}'
+    foreground = '#f8f8f2'
+    background = '#ff79c6'
+    type = 'time'
+    invert_powerline = true
 
     [blocks.segments.properties]
       time_format = '15:04'
-
-[transient_prompt]
-  foreground_templates = [
-    "{{if gt .Code 0}}green{{end}}",
-    "{{if eq .Code 0}}magenta{{end}}",
-  ]
-  background = 'transparent'
-  template = '❯ '
-
-[secondary_prompt]
-  foreground = 'magenta'
-  background = 'transparent'
-  template = '❯❯ '
