@@ -1,0 +1,15 @@
+{
+	"latest_signin": "my",
+	"device": "3ssdowi26iuw3f43kvwcs6yvxq",
+	"accounts": [
+		{
+			"shorthand": "my",
+			"accountUUID": "WFYIJY6IOVCJZBO5I77S542CFY",
+			"url": "https://my.1password.com",
+			"email": "issacliu2008@gmail.com",
+			"accountKey": "A3-PJQKA8-E54S9C-QMK6D-HTGYR-F2C9H-YKYFF",
+			"userUUID": "INPYXMRZ3BELZCSM7HVIAQOL6E"
+		}
+	],
+	"system_auth_latest_signin": "INPYXMRZ3BELZCSM7HVIAQOL6E"
+}
